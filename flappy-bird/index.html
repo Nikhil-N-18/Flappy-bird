@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Flappy Bird HTML5</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game" data-state="start">
+        <canvas id="cv"></canvas>
+        <div id="curtain"></div>
+        <div id="mile"></div>
+        
+        <div id="hud">
+            <div class="hleft">
+                <div id="scoreWrap"><div id="score">0</div></div>
+                <div id="coinHud"><span class="coinIcon"></span><span id="coinN">0</span></div>
+            </div>
+            <div>
+                <button id="pauseBtn" class="ib">II</button>
+            </div>
+        </div>
+        
+        <div id="hint" class="tut">Tap to flap!</div>
+
+        <!-- Start Screen -->
+        <div id="start" class="screen show">
+            <h1>Flappy<br>Bird</h1>
+            <div class="bottom">
+                <div id="best">Best 0</div>
+                <button id="playBtn" class="btn">PLAY</button>
+                <div style="display:flex;gap:1em;margin-top:.5em">
+                    <button id="shopBtn" class="ib">🛒</button>
+                    <button id="setBtn" class="ib">⚙️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause" class="screen">
+            <h2>Paused</h2>
+            <div class="bottom">
+                <button id="resumeBtn" class="btn">RESUME</button>
+                <div style="display:flex;gap:1em;margin-top:.5em">
+                    <button id="shopBtn2" class="ib">🛒</button>
+                    <button id="setBtn2" class="ib">⚙️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="over" class="screen">
+            <h2>Game Over</h2>
+            <div class="panel">
+                <div class="medalWrap"><div id="medal" class="medal m-none"></div></div>
+                <div>Score</div><b id="fScore">0</b>
+                <div>Best</div><b id="fBest">0</b>
+                <div id="badge">NEW!</div>
+            </div>
+            <button id="restartBtn" class="btn">OK</button>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings" class="screen">
+            <h2>Settings</h2>
+            <div class="panel set">
+                <div>Sound</div>
+                <div class="seg" data-k="sound">
+                    <button data-v="1">On</button>
+                    <button data-v="0">Off</button>
+                </div>
+                <div>Diff</div>
+                <div class="seg" data-k="diff">
+                    <button data-v="0">E</button>
+                    <button data-v="1">N</button>
+                    <button data-v="2">H</button>
+                </div>
+                <div>GFX</div>
+                <div class="seg" data-k="gfx">
+                    <button data-v="0">Low</button>
+                    <button data-v="1">High</button>
+                </div>
+            </div>
+            <button id="backBtn" class="btn small">Back</button>
+        </div>
+
+        <!-- Shop Screen -->
+        <div id="shop" class="screen">
+            <div class="shopHead">
+                Wallet: <span class="coinIcon"></span><span id="walletLbl">0</span>
+            </div>
+            <div class="shopTabs">
+                <button id="tabBirds" class="on">Birds</button>
+                <button id="tabMaps">Maps</button>
+            </div>
+            <div class="shopBody">
+                <div id="skins" class="shopGrid"></div>
+                <div id="maps" class="shopGrid" style="display:none"></div>
+            </div>
+            <div id="shopNote" class="note">Fly through the pipes to grab coins, then tap a locked character to unlock it.</div>
+            <button id="shopBackBtn" class="btn small">Back</button>
+        </div>
+
+        <!-- Hidden Sound Toggle -->
+        <button id="soundBtn" style="position:absolute;bottom:10px;right:10px;font-size:20px;opacity:0.3;z-index:999;background:none;border:none;">🔊</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
